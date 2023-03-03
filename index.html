@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Document</title>
+    <script>
+      // Fetch data from the Space X API
+      async function getData() {
+        console.log("first");
+        // Fetch data from the Space X API
+        await fetch("https://api.spacexdata.com/v4/launches/latest");
+        // or
+        // const data = await
+        // fetch("https://api.spacexdata.com/v4/launches/latest")
+          // Convert the data into JavaScript
+          .then((response) => response.json())
+          // Now we can use the data
+          .then((data) => {
+            // Log out the data
+            console.log("second", data);
+            // Add some data amd markup to the page
+          })
+          // Log out any errors
+          .catch((error) => console.error(error));
+        console.log("third");
+      }
+      getData();
+    </script>
+  </head>
+  <body>
+    <div id="app"></div>
+  </body>
+</html>

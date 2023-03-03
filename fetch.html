@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Document</title>
+    <script>
+      // Fetch data from the Space X API
+      fetch("https://api.spacexdata.com/v4/launches/latest")
+        // Convert the data into JavaScript
+        .then((response) => response.json())
+        // Now we can use the data
+        .then((data) => {
+          // Log out the data
+          console.log(data);
+          // Add some data amd markup to the page
+          document.querySelector("#app").insertAdjacentHTML(
+            "beforeend",
+            `<h2>${data.name}</h2>
+<p>${data.date_local}
+</p>`
+          );
+        })
+        // Log out any errors
+        .catch((error) => console.error(error));
+    </script>
+  </head>
+  <body>
+    <div id="app"></div>
+  </body>
+</html>
